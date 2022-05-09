@@ -22,12 +22,12 @@ from flask import Flask, render_template, request, Markup
 
 
 # Loading the crop Recommendation Model
-crop_recommendation_model_path = 'crop_final.pkl'
+crop_recommendation_model_path = 'models/crop_final.pkl'
 crop_recommendation_model = pickle.load(
     open(crop_recommendation_model_path, 'rb'))
 
 # Loading the Crop Yield Recommendation model pickle file
-pickled_model_file = open('yield_prediction_final.pkl','rb')
+pickled_model_file = open('models/yield_prediction_final.pkl','rb')
 classifier = pickle.load(pickled_model_file)
 
 
@@ -204,4 +204,4 @@ def crop_prediction():
 
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run(host = "0.0.0.0", port = 5000, debug = True)
